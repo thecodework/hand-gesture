@@ -27,14 +27,4 @@
         android:layout_marginTop="20dp"
         android:textColor="@color/colorAccent"
         android:textSize="40sp" />
-
-    <TextView
-        android:id="@+id/move_gesture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:textColor="@color/colorAccent"
-        android:textSize="40sp" />
-
 </RelativeLayout>
