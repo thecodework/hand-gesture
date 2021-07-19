@@ -14,6 +14,8 @@
 
 package com.example.mediapipemultihandstracking;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -173,6 +175,7 @@ public class MainActivity extends BasicActivity {
                 fourthFingerIsOpen = true;
             }
 
+            AudioManager audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
             // Hand gesture recognition
             if (thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen) {
                 Log.d(TAG, "Five");
@@ -188,6 +191,10 @@ public class MainActivity extends BasicActivity {
                 return "TWO";
             } else if (!thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "One");
+                audioManager.adjustStreamVolume(
+                        AudioManager.STREAM_MUSIC,
+                        AudioManager.ADJUST_RAISE,
+                        AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);
                 return "ONE";
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "Yeah");
@@ -200,6 +207,11 @@ public class MainActivity extends BasicActivity {
                 return "Spider-Man";
             } else if (!thumbIsOpen && !firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "fist");
+                audioManager.adjustStreamVolume(
+                        AudioManager.STREAM_MUSIC,
+                        AudioManager.ADJUST_LOWER,
+                        AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);
+
                 return "fist";
             } else if (!firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen && isThumbNearFirstFinger(landmarkList.get(4), landmarkList.get(8))) {
                 Log.d(TAG, "ok");
