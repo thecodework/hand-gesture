@@ -3,9 +3,6 @@ Gesture recognition through Mediapipe on Android
 see these [instructions](https://google.github.io/mediapipe/getting_started/android_archive_library.html) that use Android Archive (AAR) and Gradle，The idea of gesture recognition comes from [Simple Hand Gesture Recognition Code - Hand tracking - Mediapipe](https://gist.github.com/TheJLifeX/74958cc59db477a91837244ff598ef4a)， [Hand movement recognition](https://github.com/TheJLifeX/mediapipe/tree/hand-mouvement-recognition)
 
 
-
-If it helps you, please give me a star 。
-
 ![](https://oscimg.oschina.net/oscnet/up-3536fb9dd63dfb49e388960512498489620.JPEG)
 
 
@@ -17,11 +14,11 @@ If it helps you, please give me a star 。
 
 ## What we have done?
 - We have five finger states.
-thumbIsOpen
-firstFingerIsOpen
-secondFingerIsOpen
-thirdFingerIsOpen
-fourthFingerIsOpen
+- thumbIsOpen
+- firstFingerIsOpen
+- secondFingerIsOpen
+- thirdFingerIsOpen
+- fourthFingerIsOpen
 For exmaple: thumb is open if the x value of landmark 3 and the x value of landmark 4 are less than x value of landmark 2 else it is close
 
 ## What will be the output? 
