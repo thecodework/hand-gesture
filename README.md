@@ -35,7 +35,3 @@ For exmaple: thumb is open if the x value of landmark 3 and the x value of landm
 
 ## What are our future plan regarding the development of project?
 - Our future planning  about this project is to move the objects using touchless hand gesture.
-
-
-
-
