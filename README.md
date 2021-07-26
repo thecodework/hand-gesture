@@ -82,9 +82,13 @@ For exmaple: thumb is open if the x value of landmark 3 and the x value of landm
  
 ## What difficulties we faced while working on project?
 - To detect the finger landmarks logic was quite difficult to us.
+- ![image](https://user-images.githubusercontent.com/78479435/126991640-b2bacc1d-af1a-4bd3-b91d-0145922b7e75.png)
+  ![image](https://user-images.githubusercontent.com/78479435/126991708-5163a5a0-b3a1-44bd-9307-028826db7064.png)
+  ![image](https://user-images.githubusercontent.com/78479435/126991889-d3b4c326-34b8-42b7-b0c0-cf88a89e03f2.png)
+
 
 ## How we overcome the difficulties?
-- we changes our landrmarks values and logics to detect the finger.
+- we changes our landrmarks values and logics to detect the finger and follow this [documentation](https://gist.github.com/TheJLifeX/74958cc59db477a91837244ff598ef4a)
 
 ## What we tried to do but did not succeed?
 - we tried to remove camera prview to detect the finger but we failed.At the end we reduce the size of preview.
