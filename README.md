@@ -65,15 +65,6 @@ There are some following steps
 ![image](https://user-images.githubusercontent.com/78479435/126987028-b8298c84-2fbe-4db9-aa51-c72a4f1a3785.png)
 ![image](https://user-images.githubusercontent.com/78479435/126987078-3497a33c-3d0a-44b1-8159-e6e3ff3bc069.png)
 
-## What we have done?
-- We have five finger states.
-- thumbIsOpen
-- firstFingerIsOpen
-- secondFingerIsOpen
-- thirdFingerIsOpen
-- fourthFingerIsOpen
-For exmaple: thumb is open if the x value of landmark 3 and the x value of landmark 4 are less than x value of landmark 2 else it is close.
-
 ## What will be the output? 
 - We recognize gesture such as ONE, TWO, TREE, FOUR, FIVE, SIX, YEAH, ROCK, SPIDERMAN,fist and OK and We can increase/decrease volume of our device using one finger and fist.
 - ![image](https://user-images.githubusercontent.com/78479435/126987621-9ebd749d-eeb8-4e54-87af-8ca247facce8.png)
@@ -81,14 +72,15 @@ For exmaple: thumb is open if the x value of landmark 3 and the x value of landm
 
  
 ## What difficulties we faced while working on project?
-- To detect the finger landmarks logic was quite difficult to us.
+-  Mediapipe Hands consists of two different models working together namely Palm Detection Model in which a full image is identified and it draws a box around the hand, and Hand   Landmark Model operates on this boxed image formed by Palm Detector and provides high fidelity 2D hand keypoint coordinates.We have five finger states.
+  thumbIsOpen, firstFingerIsOpen, secondFingerIsOpen, thirdFingerIsOpen, fourthFingerIsOpen. For exmaple: thumb is open if the x value of landmark 3 and the x value of landmark 4 are less than x value of landmark 2 else it is close. To detect the finger landmarks logic was quite difficult to us.
 - ![image](https://user-images.githubusercontent.com/78479435/126991640-b2bacc1d-af1a-4bd3-b91d-0145922b7e75.png)
   ![image](https://user-images.githubusercontent.com/78479435/126991708-5163a5a0-b3a1-44bd-9307-028826db7064.png)
   ![image](https://user-images.githubusercontent.com/78479435/126991889-d3b4c326-34b8-42b7-b0c0-cf88a89e03f2.png)
 
 
 ## How we overcome the difficulties?
-- We changes our landrmarks values and logics to detect the finger and follow this [documentation](https://gist.github.com/TheJLifeX/74958cc59db477a91837244ff598ef4a)
+- At the beginning detecting fingers were difficult, We changes our landrmarks values and logics to detect the finger and follow this [documentation](https://gist.github.com/TheJLifeX/74958cc59db477a91837244ff598ef4a)
 
 ## What we tried to do but did not succeed?
 - We tried to remove camera prview to detect the finger but we failed.At the end we reduce the size of preview.
