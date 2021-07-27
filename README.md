@@ -13,7 +13,7 @@ see these [instructions](https://google.github.io/mediapipe/getting_started/andr
 ## Installation steps
 
 There are some following steps 
-- In ```sh build.gradle``` of App, add a [Mediapipe](https://google.github.io/mediapipe/solutions/hands.html) and [CameraX core](https://developer.android.com/jetpack/androidx/releases/camera) library.
+- In build.gradle of App, add a [Mediapipe](https://google.github.io/mediapipe/solutions/hands.html) and [CameraX core](https://developer.android.com/jetpack/androidx/releases/camera) library.
 - In Android Manifets.xml file add permission for hand tracking in app, Camera permission, hardware camera permission,hardware camera autofocus permission add meta data.
 - Add the frame layout to display camera preview. 
 - Make folder of asset in app.
