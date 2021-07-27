@@ -74,9 +74,10 @@ There are some following steps
 ## What difficulties we faced while working on project?
 -  Mediapipe Hands consists of two different models working together namely Palm Detection Model in which a full image is identified and it draws a box around the hand, and Hand   Landmark Model operates on this boxed image formed by Palm Detector and provides high fidelity 2D hand keypoint coordinates.We have five finger states.
   thumbIsOpen, firstFingerIsOpen, secondFingerIsOpen, thirdFingerIsOpen, fourthFingerIsOpen. For exmaple: thumb is open if the x value of landmark 3 and the x value of landmark 4 are less than x value of landmark 2 else it is close. To detect the finger landmarks logic was quite difficult to us.
-- ![image](https://user-images.githubusercontent.com/78479435/126991640-b2bacc1d-af1a-4bd3-b91d-0145922b7e75.png)
-  ![image](https://user-images.githubusercontent.com/78479435/126991708-5163a5a0-b3a1-44bd-9307-028826db7064.png)
-  ![image](https://user-images.githubusercontent.com/78479435/126991889-d3b4c326-34b8-42b7-b0c0-cf88a89e03f2.png)
+ - ![image](https://user-images.githubusercontent.com/78479435/127155596-4e5a45c3-7f5d-4566-bab9-428ec657fdf8.png)
+   ![image](https://user-images.githubusercontent.com/78479435/126991640-b2bacc1d-af1a-4bd3-b91d-0145922b7e75.png)
+   ![image](https://user-images.githubusercontent.com/78479435/126991708-5163a5a0-b3a1-44bd-9307-028826db7064.png)
+   ![image](https://user-images.githubusercontent.com/78479435/126991889-d3b4c326-34b8-42b7-b0c0-cf88a89e03f2.png)
 
 
 ## How we overcome the difficulties?
