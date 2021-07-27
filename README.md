@@ -75,7 +75,7 @@ There are some following steps
 For exmaple: thumb is open if the x value of landmark 3 and the x value of landmark 4 are less than x value of landmark 2 else it is close.
 
 ## What will be the output? 
-- We recognize gesture such as ONE, TWO, TREE, FOUR, FIVE, SIX, YEAH, ROCK, SPIDERMAN,fist and OK and we can increase/decrease volume programmatically using one finger and fist.
+- We recognize gesture such as ONE, TWO, TREE, FOUR, FIVE, SIX, YEAH, ROCK, SPIDERMAN,fist and OK and we can increase/decrease volume of our device using one finger and fist.
 ![image](https://user-images.githubusercontent.com/78479435/126987621-9ebd749d-eeb8-4e54-87af-8ca247facce8.png)
 ![image](https://user-images.githubusercontent.com/78479435/126987775-5502f94d-1335-40fc-ac5f-70da54fe7e4e.png)
 
