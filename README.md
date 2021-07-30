@@ -9,7 +9,7 @@ see these [instructions](https://google.github.io/mediapipe/getting_started/andr
 
 ## what this project about?
 - Goal of this project is to recognize ONE, TWO, TREE, FOUR, FIVE, SIX, YEAH, ROCK, SPIDERMAN and OK. We use the LANDMARKS output of the LandmarkLetterboxRemovalCalculator. This output is a landmark list that contains 21 landmark.Each landmark have x, y and z values. But only x, y values are sufficient for our Goal.
-- We have five finger states.
+- We have five finger states-
 
 - thumbIsOpen
 - firstFingerIsOpen
