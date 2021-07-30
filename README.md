@@ -16,7 +16,7 @@ see these [instructions](https://google.github.io/mediapipe/getting_started/andr
 - secondFingerIsOpen
 - thirdFingerIsOpen
 - fourthFingerIsOpen
-For exmaple: thumb is open if the x value of landmark 3 and the x value of landmark 4 are less than x value of landmark 2 else it is close
+- For exmaple: thumb is open if the x value of landmark 3 and the x value of landmark 4 are less than x value of landmark 2 else it is close
 
 ## Installation steps
 
