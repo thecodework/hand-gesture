@@ -57,7 +57,7 @@ There are some following steps
 
 ## What will be the output? 
 - We recognize gesture such as ONE, TWO, TREE, FOUR, FIVE, SIX, YEAH, ROCK, SPIDERMAN,fist and OK and We can increase/decrease volume of our device using one finger and fist.
-
+-![ezgif com-gif-maker]https://gist.githubusercontent.com/TheJLifeX/74958cc59db477a91837244ff598ef4a/raw/088f3995801c58f79f0a79086f1cd4cc176396d3/00-hand-gesture-recognition.gif
 
  
 ## What difficulties we faced while working on project?
