@@ -76,7 +76,7 @@ There are some following steps
 - At the beginning detecting fingers were difficult, We changes our landrmarks values and logics to detect the finger and follow this [documentation](https://gist.github.com/TheJLifeX/74958cc59db477a91837244ff598ef4a) from there we find ideas to detect finger using hand gesture.
 
 ## What we tried to do but did not succeed?
-- We tried to remove Camera preview to detect the finger but after removing preview we are not able to detect finger and we failed in this idea. At the end we reduce the size of preview.
+- We tried to remove Camera preview to detect the finger but after removing preview we are not able to detect finger so we have tos how camera preview. At the end we reduce the size of camera preview.
 
 ## What are our future plan regarding the development of project?
-- Our future planning  about this project is to move the objects using touchless hand gesture.
+- Our future planning about this project is to control our smartphone using touchless hand gesture.
