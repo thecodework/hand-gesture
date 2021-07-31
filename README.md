@@ -31,37 +31,12 @@ There are some following steps
 
 - Run the App.
 
-## Dependencies with their versions :
-```sh
-    //Mediapipe
-    implementation 'com.google.flogger:flogger:0.3.1'
-    implementation 'com.google.flogger:flogger-system-backend:0.3.1'
-    implementation 'com.google.code.findbugs:jsr305:3.0.2'
-    implementation 'com.google.guava:guava:27.0.1-android'
-    implementation 'com.google.guava:guava:27.0.1-android'
-    implementation 'com.google.protobuf:protobuf-java:3.11.4'
-```
-```sh
-    //CameraX core Library
-    def camerax_version = "1.0.0-beta10"
-    implementation "androidx.camera:camera-core:$camerax_version"
-    implementation "androidx.camera:camera-camera2:$camerax_version"
-    implementation "androidx.camera:camera-lifecycle:$camerax_version"
-``
+## Dependencies/ Labraries with their versions :
+- [Mediapipe](https://google.github.io/mediapipe/solutions/hands.html)- The ability to perceive the shape and motion of hands can be a vital component in improving the user experience across a variety of technological domains and platforms. We are using flogger:0.3.1, flogger-system-backend:0.3.1, findbugs:jsr305:3.0.2, guava:27.0.1-android, protobuf-java:3.11.4 versions.
+- [CameraX core Library](https://developer.android.com/jetpack/androidx/releases/camera)- CameraX is an addition to Jetpack that makes it easier to add camera capabilities to your app. The library provides a number of compatibility fixes and workarounds to help make the developer experience consistent across many devices. We are using 1.0.0-beta10 versions.
 	
 ## Mainifest :
-```sh
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-```
-```sh
-        <meta-data android:name="cameraFacingFront" android:value="true"/>
-        <meta-data android:name="binaryGraphName" android:value="hand_tracking_mobile_gpu.binarypb"/>
-        <meta-data android:name="inputVideoStreamName" android:value="input_video"/>
-        <meta-data android:name="outputVideoStreamName" android:value="output_video"/>
-        <meta-data android:name="flipFramesVertically" android:value="true"/>
-```
+- We are using [Camera permission](https://developer.android.com/guide/topics/media/camera), [android.hardware.Camera](https://developer.android.com/reference/android/hardware/Camera) and [android.hardware.camera.autofocus permission](https://developer.android.com/reference/android/hardware/Camera).
 
 ## What will be the output? 
 - We recognize gesture such as ONE, TWO, TREE, FOUR, FIVE, SIX, YEAH, ROCK, SPIDERMAN,fist and OK and We can increase/decrease volume of our device using one finger and fist.
