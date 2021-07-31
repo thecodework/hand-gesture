@@ -36,7 +36,7 @@ There are some following steps
 - [CameraX core Library](https://developer.android.com/jetpack/androidx/releases/camera)- CameraX is an addition to Jetpack that makes it easier to add camera capabilities to your app. The library provides a number of compatibility fixes and workarounds to help make the developer experience consistent across many devices. We are using 1.0.0-beta10 versions.
 	
 ## Mainifest :
-- We are using [Camera permission](https://developer.android.com/guide/topics/media/camera), [android.hardware.Camera](https://developer.android.com/reference/android/hardware/Camera) and [android.hardware.camera.autofocus permission](https://developer.android.com/reference/android/hardware/Camera).
+- We are using [Camera permission](https://developer.android.com/guide/topics/media/camera), [android.hardware.Camera permission](https://developer.android.com/reference/android/hardware/Camera) and [android.hardware.camera.autofocus permission](https://developer.android.com/reference/android/hardware/Camera).
 
 ## What will be the output? 
 - We recognize gesture such as ONE, TWO, TREE, FOUR, FIVE, SIX, YEAH, ROCK, SPIDERMAN,fist and OK and We can increase/decrease volume of our device using one finger and fist.
