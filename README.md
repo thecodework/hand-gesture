@@ -65,6 +65,8 @@ There are some following steps
 
 ## What will be the output? 
 - We recognize gesture such as ONE, TWO, TREE, FOUR, FIVE, SIX, YEAH, ROCK, SPIDERMAN,fist and OK and We can increase/decrease volume of our device using one finger and fist.
+- ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/78479435/127730764-c7688669-c608-4cf0-97fd-a32ccc2a25b7.gif)
+
  
 ## What difficulties we faced while working on project?
 -  Mediapipe Hands consists of two different models working together namely Palm Detection Model in which a full image is identified and it draws a box around the hand, and Hand   Landmark Model operates on this boxed image formed by Palm Detector and provides high fidelity 2D hand keypoint coordinates.We have five finger states.
