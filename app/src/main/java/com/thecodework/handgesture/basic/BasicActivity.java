@@ -1,18 +1,4 @@
-// Copyright 2019 The MediaPipe Authors.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
-package com.example.mediapipemultihandstracking.basic;
+package com.thecodework.handgesture.basic;
 
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -25,10 +11,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.mediapipemultihandstracking.R;
 import com.google.mediapipe.components.CameraHelper;
 import com.google.mediapipe.components.CameraXPreviewHelper;
 import com.google.mediapipe.components.ExternalTextureConverter;
@@ -36,6 +19,7 @@ import com.google.mediapipe.components.FrameProcessor;
 import com.google.mediapipe.components.PermissionHelper;
 import com.google.mediapipe.framework.AndroidAssetUtil;
 import com.google.mediapipe.glutil.EglManager;
+import com.thecodework.handgesture.R;
 
 /**
  * Main activity of MediaPipe basic app.
@@ -52,7 +36,6 @@ public class BasicActivity extends AppCompatActivity {
     private static final boolean FLIP_FRAMES_VERTICALLY = true;
 
     static {
-        // Load all native libraries needed by the app.
         System.loadLibrary("mediapipe_jni");
         try {
             System.loadLibrary("opencv_java3");
@@ -156,9 +139,7 @@ public class BasicActivity extends AppCompatActivity {
     public void startCamera() {
         cameraHelper = new CameraXPreviewHelper();
         cameraHelper.setOnCameraStartedListener(
-                surfaceTexture -> {
-                    onCameraStarted(surfaceTexture);
-                });
+                surfaceTexture -> onCameraStarted(surfaceTexture));
         CameraHelper.CameraFacing cameraFacing =
                 applicationInfo.metaData.getBoolean("cameraFacingFront", false)
                         ? CameraHelper.CameraFacing.FRONT
@@ -172,7 +153,7 @@ public class BasicActivity extends AppCompatActivity {
     }
 
     protected void onPreviewDisplaySurfaceChanged(
-            SurfaceHolder holder, int format, int width, int height) {
+            int width, int height) {
         // (Re-)Compute the ideal size of the camera-preview display (the area that the
         // camera-preview frames get rendered onto, potentially with scaling and rotation)
         // based on the size of the SurfaceView that contains the display.
@@ -205,7 +186,7 @@ public class BasicActivity extends AppCompatActivity {
 
                             @Override
                             public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-                               onPreviewDisplaySurfaceChanged(holder, format, width, height);
+                               onPreviewDisplaySurfaceChanged(width, height);
                             }
 
                             @Override

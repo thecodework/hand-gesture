@@ -1,4 +1,4 @@
-package com.example.mediapipemultihandstracking;
+package com.thecodework.handgesture;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.mediapipemultihandstracking", appContext.getPackageName());
+        assertEquals("com.thecodework.handgesture", appContext.getPackageName());
     }
 }

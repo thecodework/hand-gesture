@@ -1,4 +1,4 @@
-package com.example.mediapipemultihandstracking;
+package com.thecodework.handgesture;
 
 import org.junit.Test;
 

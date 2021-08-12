@@ -1,12 +1,10 @@
-package com.example.mediapipemultihandstracking;
+package com.thecodework.handgesture;
 
 import android.content.Context;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
-
-import com.example.mediapipemultihandstracking.basic.BasicActivity;
 import com.google.mediapipe.formats.proto.LandmarkProto;
 import com.google.mediapipe.formats.proto.LandmarkProto.NormalizedLandmark;
 import com.google.mediapipe.formats.proto.LandmarkProto.NormalizedLandmarkList;
@@ -21,7 +19,7 @@ import java.util.Map;
 /**
  * Main activity of MediaPipe multi-hand tracking app.
  */
-public class MainActivity extends BasicActivity {
+public class MainActivity extends com.thecodework.handgesture.basic.BasicActivity {
     private static final String TAG = "MainActivity";
     private List<NormalizedLandmarkList> multiHandLandmarks;
     private static final String INPUT_NUM_HANDS_SIDE_PACKET_NAME = "num_hands";
@@ -132,7 +130,8 @@ public class MainActivity extends BasicActivity {
                             AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);
                 }
                 return "fist";
-            } else if (!firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen && isThumbNearFirstFinger(landmarkList.get(4), landmarkList.get(8))) {
+            } else if (!firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen &&
+                    isThumbNearFirstFinger(landmarkList.get(4), landmarkList.get(8))) {
                 Log.d(TAG, "ok");
                 return "OK";
             } else {
