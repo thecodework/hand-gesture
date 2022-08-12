@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="match_parent">
 
     <FrameLayout
         android:id="@+id/preview_display_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:alpha="0.5"
         android:layout_weight="1">
 
         <TextView
