@@ -96,12 +96,15 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
                 return "FIVE";
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen) {
                 Log.d(TAG, "Four");
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
                 return "FOUR";
-            } else if (thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
+            } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "Three");
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
                 return "THREE";
-            } else if (thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
+            } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "Two");
+                audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
                 return "TWO";
             } else if (!thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "One");
@@ -112,7 +115,7 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
                             AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);
                 }
                 return "ONE";
-            } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
+            } else if (thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "Yeah");
                 return "YEAH";
             } else if (!thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && fourthFingerIsOpen) {
