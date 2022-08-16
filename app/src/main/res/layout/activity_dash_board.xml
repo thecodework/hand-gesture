@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back_img"
     tools:context=".DashBoardActivity">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_marginTop="12dp"
         android:gravity="center_horizontal"
         android:text="Hand Gesture"
+        android:fontFamily="@font/pop_bold"
         android:textSize="32sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -23,8 +25,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="20dp"
-        app:cardBackgroundColor="@color/colorAccent"
+        android:layout_marginTop="100dp"
+        android:elevation="10dp"
+        app:cardBackgroundColor="@color/light_blue"
         app:cardCornerRadius="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -35,60 +38,140 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="4dp">
-
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:padding="4dp"
-                    android:src="@drawable/first_finget"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="First Finger"
-                    android:textSize="32sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </LinearLayout>
-
-            <LinearLayout
+                android:padding="4dp"
+                android:fontFamily="@font/pop_bold"
+                android:text="@string/text_instruction"
+                android:textColor="@color/cream"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:textSize="22sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+                android:padding="4dp"
+                android:text="Mentioned gestures will do below tasks-"
+                android:textSize="18sp"
+                android:textColor="@color/cream"
+                android:fontFamily="@font/pop_semibold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:padding="4dp"
-                    android:src="@drawable/fist"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="First finger: Increases media volume"
+                android:textSize="14sp"
+                android:textColor="@color/cream"
+                android:fontFamily="@font/pop_medium"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="First"
-                    android:textSize="32sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="Fist: Increases media volume"
+                android:textSize="14sp"
+                android:textColor="@color/cream"
+                android:fontFamily="@font/pop_medium"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="First &amp; Second Finger: Silent Device"
+                android:textSize="14sp"
+                android:textColor="@color/cream"
+                android:fontFamily="@font/pop_medium"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="First, Second &amp; Third Finger: Normal Device"
+                android:textSize="14sp"
+                android:textColor="@color/cream"
+                android:fontFamily="@font/pop_medium"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:text="First, Second, Third &amp; Forth Finger: Vibrate Device"
+                android:textSize="14sp"
+                android:textColor="@color/cream"
+                android:fontFamily="@font/pop_medium"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <!-- <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="20dp"
+                 android:orientation="horizontal">
+
+                 <ImageView
+                     android:layout_width="80dp"
+                     android:layout_height="80dp"
+                     android:padding="4dp"
+                     android:src="@drawable/first_finget"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     app:layout_constraintLeft_toLeftOf="parent"
+                     app:layout_constraintRight_toRightOf="parent"
+                     app:layout_constraintTop_toTopOf="parent" />
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="12dp"
+                     android:text="First Finger"
+                     android:textSize="32sp"
+                     app:layout_constraintLeft_toLeftOf="parent"
+                     app:layout_constraintRight_toRightOf="parent"
+                     app:layout_constraintTop_toTopOf="parent" />
+             </LinearLayout>
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="20dp"
+                 android:orientation="horizontal">
+
+                 <ImageView
+                     android:layout_width="80dp"
+                     android:layout_height="80dp"
+                     android:padding="4dp"
+                     android:src="@drawable/fist"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     app:layout_constraintLeft_toLeftOf="parent"
+                     app:layout_constraintRight_toRightOf="parent"
+                     app:layout_constraintTop_toTopOf="parent" />
+
+                 <TextView
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="12dp"
+                     android:text="First"
+                     android:textSize="32sp"
+                     app:layout_constraintLeft_toLeftOf="parent"
+                     app:layout_constraintRight_toRightOf="parent"
+                     app:layout_constraintTop_toTopOf="parent" />
+             </LinearLayout>-->
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -101,8 +184,9 @@
         android:background="@drawable/button_rounded_accent_bg"
         android:text="Start Hand Gesture Control"
         android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textColor="@color/cream"
+        android:fontFamily="@font/pop_semibold"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardView" />
