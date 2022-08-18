@@ -1,7 +1,10 @@
 package com.thecodework.handgesture;
 
+import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -90,6 +93,7 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
             }
 
             AudioManager audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
+            NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
             // Hand gesture recognition
             if (thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen) {
                 Log.d(TAG, "Five");
@@ -104,7 +108,17 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
                 return "THREE";
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "Two");
-                audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                        && !notificationManager.isNotificationPolicyAccessGranted()) {
+
+                    Intent intent = new Intent(
+                            android.provider.Settings
+                                    .ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
+                    startActivity(intent);
+                }
+                if(notificationManager.isNotificationPolicyAccessGranted()){
+                    audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                }
                 return "TWO";
             } else if (!thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "One");
