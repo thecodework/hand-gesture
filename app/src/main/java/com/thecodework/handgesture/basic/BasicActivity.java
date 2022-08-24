@@ -11,6 +11,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.mediapipe.components.CameraHelper;
 import com.google.mediapipe.components.CameraXPreviewHelper;
@@ -64,17 +66,20 @@ public class BasicActivity extends AppCompatActivity {
 
     // ApplicationInfo for retrieving metadata defined in the manifest.
     private ApplicationInfo applicationInfo;
+    private TextView no_camera_access_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        no_camera_access_view=findViewById(R.id.no_camera_access_view);
+        if (PermissionHelper.cameraPermissionsGranted(this)) {
+            no_camera_access_view.setVisibility(View.GONE);
+        }
         try {
             applicationInfo =
                     getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
         } catch (NameNotFoundException e) {
-            Log.e(TAG, "Cannot find application info: " + e);
         }
 
         previewDisplayView = new SurfaceView(this);
@@ -102,6 +107,7 @@ public class BasicActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        Log.d("camera","log call onResume");
         super.onResume();
         converter = new ExternalTextureConverter(eglManager.getContext());
         converter.setFlipY(
@@ -121,31 +127,41 @@ public class BasicActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(
             int requestCode, String[] permissions, int[] grantResults) {
+        Log.d("camera","log call onRequestPermissionsResult");
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         PermissionHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
     protected void onCameraStarted(SurfaceTexture surfaceTexture) {
+        Log.d("camera","log3 call onCameraStarted1");
         previewFrameTexture = surfaceTexture;
+        Log.d("camera","log  onCameraStarted2");
         // Make the display view visible to start showing the preview. This triggers the
         // SurfaceHolder.Callback added to (the holder of) previewDisplayView.
         previewDisplayView.setVisibility(View.VISIBLE);
+        Log.d("camera","log  onCameraStarted3");
     }
 
     protected Size cameraTargetResolution() {
+        Log.d("camera","log call cameraTargetResolution");
         return null; // No preference and let the camera (helper) decide.
     }
 
     public void startCamera() {
+        Log.d("camera","log2 call startCamera1");
         cameraHelper = new CameraXPreviewHelper();
+        Log.d("camera","log startCamera2");
         cameraHelper.setOnCameraStartedListener(
                 surfaceTexture -> onCameraStarted(surfaceTexture));
+        Log.d("camera","log startCamera3");
         CameraHelper.CameraFacing cameraFacing =
                 applicationInfo.metaData.getBoolean("cameraFacingFront", false)
                         ? CameraHelper.CameraFacing.FRONT
                         : CameraHelper.CameraFacing.BACK;
+        Log.d("camera","log startCamera4");
         cameraHelper.startCamera(
                 this, cameraFacing, /*surfaceTexture=*/ null, cameraTargetResolution());
+        Log.d("camera","log startCamera5");
     }
 
     protected Size computeViewSize(int width, int height) {
@@ -157,6 +173,7 @@ public class BasicActivity extends AppCompatActivity {
         // (Re-)Compute the ideal size of the camera-preview display (the area that the
         // camera-preview frames get rendered onto, potentially with scaling and rotation)
         // based on the size of the SurfaceView that contains the display.
+        Log.d("camera","log6 call onPreviewDisplaySurfaceChanged");
         Size viewSize = computeViewSize(width, height);
         Size displaySize = cameraHelper.computeDisplaySizeFromViewSize(viewSize);
         boolean isCameraRotated = cameraHelper.isCameraRotated();
@@ -171,6 +188,7 @@ public class BasicActivity extends AppCompatActivity {
     }
 
     private void setupPreviewDisplayView() {
+        Log.d("camera","log1 call setupPreviewDisplayView ");
         previewDisplayView.setVisibility(View.GONE);
         ViewGroup viewGroup = findViewById(R.id.preview_display_layout);
         viewGroup.addView(previewDisplayView);
@@ -181,16 +199,19 @@ public class BasicActivity extends AppCompatActivity {
                         new SurfaceHolder.Callback() {
                             @Override
                             public void surfaceCreated(SurfaceHolder holder) {
+                                Log.d("camera","log4 call surfaceCreated");
                                 processor.getVideoSurfaceOutput().setSurface(holder.getSurface());
                             }
 
                             @Override
                             public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+                                Log.d("camera","log5 call surfaceChanged");
                                onPreviewDisplaySurfaceChanged(width, height);
                             }
 
                             @Override
                             public void surfaceDestroyed(SurfaceHolder holder) {
+                                Log.d("camera","log call surfaceDestroyed");
                                 processor.getVideoSurfaceOutput().setSurface(null);
                             }
                         });
