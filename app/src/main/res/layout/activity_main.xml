@@ -2,15 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_img"
-    >
+    android:background="@drawable/back_img">
 
     <FrameLayout
         android:id="@+id/preview_display_layout"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:alpha="0.5"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:alpha="0.5">
 
         <TextView
             android:id="@+id/no_camera_access_view"
@@ -28,6 +27,7 @@
         android:layout_marginTop="50dp"
         android:textColor="@color/colorAccent"
         android:textSize="40sp" />
+
     <TextView
         android:id="@+id/feature"
         android:layout_width="wrap_content"
@@ -37,34 +37,34 @@
         android:layout_marginTop="20dp"
         android:textColor="@color/colorAccent"
         android:textSize="40sp" />
+
     <ImageView
         android:id="@+id/imgNormal"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/normal"
-        android:layout_marginTop="20dp"
-        android:visibility="gone"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/feature"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/normal"
+        android:visibility="gone" />
+
     <ImageView
         android:id="@+id/imgSilent"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/silent"
-        android:visibility="gone"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/feature"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/silent"
+        android:visibility="gone" />
+
     <ImageView
         android:id="@+id/imgVibrate"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:visibility="gone"
+        android:layout_below="@+id/feature"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:src="@drawable/vibrate"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/feature"
-        />
+        android:visibility="gone" />
 </RelativeLayout>
