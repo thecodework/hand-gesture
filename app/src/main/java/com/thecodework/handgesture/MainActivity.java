@@ -29,12 +29,13 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
     private static final String OUTPUT_LANDMARKS_STREAM_NAME = "hand_landmarks";
     // Max number of hands to detect/process.
     private static final int NUM_HANDS = 2;
-    private TextView gesture;
+    private TextView gesture,feature;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         gesture = findViewById(R.id.gesture);
+        feature = findViewById(R.id.feature);
 
         AndroidPacketCreator packetCreator = processor.getPacketCreator();
         Map<String, Packet> inputSidePackets = new HashMap<>();
@@ -97,14 +98,17 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
             // Hand gesture recognition
             if (thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen) {
                 Log.d(TAG, "Five");
+                feature.setText(" ");
                 return "FIVE";
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen) {
                 Log.d(TAG, "Four");
                 audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                feature.setText("Vibrate Mode");
                 return "FOUR";
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "Three");
                 audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                feature.setText("Normal Mode");
                 return "THREE";
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "Two");
@@ -118,6 +122,7 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
                 }
                 if(notificationManager.isNotificationPolicyAccessGranted()){
                     audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                    feature.setText("Silent Mode");
                 }
                 return "TWO";
             } else if (!thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
@@ -128,15 +133,19 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
                             AudioManager.ADJUST_RAISE,
                             AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);
                 }
+                feature.setText(" ");
                 return "ONE";
             } else if (thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "Yeah");
+                feature.setText(" ");
                 return "YEAH";
             } else if (!thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && fourthFingerIsOpen) {
                 Log.d(TAG, "Rock");
+                feature.setText(" ");
                 return "ROCK";
             } else if (thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && fourthFingerIsOpen) {
                 Log.d(TAG, "Spiderman");
+                feature.setText(" ");
                 return "Spider-Man";
             } else if (!thumbIsOpen && !firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "fist");
@@ -146,10 +155,12 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
                             AudioManager.ADJUST_LOWER,
                             AudioManager.FLAG_PLAY_SOUND | AudioManager.FLAG_SHOW_UI);
                 }
+                feature.setText(" ");
                 return "fist";
             } else if (!firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen &&
                     isThumbNearFirstFinger(landmarkList.get(4), landmarkList.get(8))) {
                 Log.d(TAG, "ok");
+                feature.setText(" ");
                 return "OK";
             } else {
                 return "___";
