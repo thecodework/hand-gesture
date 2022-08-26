@@ -100,7 +100,6 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
             }
 
             AudioManager audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
-            NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
             // Hand gesture recognition
             if (thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen) {
                 Log.d(TAG, "Five");
@@ -112,36 +111,33 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen) {
                 Log.d(TAG, "Four");
                 audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-                feature.setText("Vibrate Mode");
-                imgVibrate.setVisibility(View.VISIBLE);
-                imgNormal.setVisibility(View.GONE);
-                imgSilent.setVisibility(View.GONE);
+                if(audioManager.getRingerMode()==AudioManager.RINGER_MODE_VIBRATE) {
+                    feature.setText("Vibrate Mode");
+                    imgVibrate.setVisibility(View.VISIBLE);
+                    imgNormal.setVisibility(View.GONE);
+                    imgSilent.setVisibility(View.GONE);
+                }
                 return "FOUR";
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "Three");
                 audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
-                feature.setText("Normal Mode");
-                imgVibrate.setVisibility(View.GONE);
-                imgNormal.setVisibility(View.VISIBLE);
-                imgSilent.setVisibility(View.GONE);
+                if(audioManager.getRingerMode()==AudioManager.RINGER_MODE_NORMAL) {
+                    feature.setText("Normal Mode");
+                    imgVibrate.setVisibility(View.GONE);
+                    imgNormal.setVisibility(View.VISIBLE);
+                    imgSilent.setVisibility(View.GONE);
+                }
                 return "THREE";
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "Two");
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                        && !notificationManager.isNotificationPolicyAccessGranted()) {
-
-                    Intent intent = new Intent(
-                            android.provider.Settings
-                                    .ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS);
-                    startActivity(intent);
+                if(audioManager.getRingerMode()==AudioManager.RINGER_MODE_VIBRATE){
+                    audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
                 }
-                if(notificationManager.isNotificationPolicyAccessGranted()){
-                    audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
-                    feature.setText("Silent Mode");
-                    imgVibrate.setVisibility(View.GONE);
-                    imgNormal.setVisibility(View.GONE);
-                    imgSilent.setVisibility(View.VISIBLE);
-                }
+                audioManager.setStreamMute(AudioManager.STREAM_SYSTEM, true);
+                feature.setText("Silent Mode");
+                imgVibrate.setVisibility(View.GONE);
+                imgNormal.setVisibility(View.GONE);
+                imgSilent.setVisibility(View.VISIBLE);
                 return "TWO";
             } else if (!thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
                 Log.d(TAG, "One");
