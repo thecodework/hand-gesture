@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pop_medium"
                 android:padding="4dp"
-                android:text="* Fist: Increases media volume"
+                android:text="* Fist: Decreases media volume"
                 android:textColor="@color/cream"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
