@@ -1,15 +1,12 @@
 package com.thecodework.handgesture;
 
-import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
 import android.media.AudioManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.google.mediapipe.formats.proto.LandmarkProto;
 import com.google.mediapipe.formats.proto.LandmarkProto.NormalizedLandmark;
 import com.google.mediapipe.formats.proto.LandmarkProto.NormalizedLandmarkList;
@@ -29,10 +26,9 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
     private List<NormalizedLandmarkList> multiHandLandmarks;
     private static final String INPUT_NUM_HANDS_SIDE_PACKET_NAME = "num_hands";
     private static final String OUTPUT_LANDMARKS_STREAM_NAME = "hand_landmarks";
-    // Max number of hands to detect/process.
     private static final int NUM_HANDS = 2;
-    private TextView gesture,feature;
-    private ImageView imgNormal,imgSilent,imgVibrate;
+    private TextView gesture, feature;
+    private ImageView imgNormal, imgSilent, imgVibrate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,18 +96,15 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
             }
 
             AudioManager audioManager = (AudioManager) getApplicationContext().getSystemService(Context.AUDIO_SERVICE);
-            // Hand gesture recognition
             if (thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen) {
-                Log.d(TAG, "Five");
                 feature.setText(" ");
                 imgVibrate.setVisibility(View.GONE);
                 imgNormal.setVisibility(View.GONE);
                 imgSilent.setVisibility(View.GONE);
                 return "FIVE";
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen) {
-                Log.d(TAG, "Four");
                 audioManager.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
-                if(audioManager.getRingerMode()==AudioManager.RINGER_MODE_VIBRATE) {
+                if (audioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE) {
                     feature.setText("Vibrate Mode");
                     imgVibrate.setVisibility(View.VISIBLE);
                     imgNormal.setVisibility(View.GONE);
@@ -119,9 +112,8 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
                 }
                 return "FOUR";
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && !fourthFingerIsOpen) {
-                Log.d(TAG, "Three");
                 audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
-                if(audioManager.getRingerMode()==AudioManager.RINGER_MODE_NORMAL) {
+                if (audioManager.getRingerMode() == AudioManager.RINGER_MODE_NORMAL) {
                     feature.setText("Normal Mode");
                     imgVibrate.setVisibility(View.GONE);
                     imgNormal.setVisibility(View.VISIBLE);
@@ -129,8 +121,7 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
                 }
                 return "THREE";
             } else if (!thumbIsOpen && firstFingerIsOpen && secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
-                Log.d(TAG, "Two");
-                if(audioManager.getRingerMode()==AudioManager.RINGER_MODE_VIBRATE){
+                if (audioManager.getRingerMode() == AudioManager.RINGER_MODE_VIBRATE) {
                     audioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
                 }
                 audioManager.setStreamMute(AudioManager.STREAM_SYSTEM, true);
@@ -140,7 +131,6 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
                 imgSilent.setVisibility(View.VISIBLE);
                 return "TWO";
             } else if (!thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
-                Log.d(TAG, "One");
                 if (audioManager != null) {
                     audioManager.adjustStreamVolume(
                             AudioManager.STREAM_MUSIC,
@@ -153,28 +143,24 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
                 imgSilent.setVisibility(View.GONE);
                 return "ONE";
             } else if (thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
-                Log.d(TAG, "Yeah");
                 feature.setText(" ");
                 imgVibrate.setVisibility(View.GONE);
                 imgNormal.setVisibility(View.GONE);
                 imgSilent.setVisibility(View.GONE);
                 return "YEAH";
             } else if (!thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && fourthFingerIsOpen) {
-                Log.d(TAG, "Rock");
                 imgVibrate.setVisibility(View.GONE);
                 imgNormal.setVisibility(View.GONE);
                 imgSilent.setVisibility(View.GONE);
                 feature.setText(" ");
                 return "ROCK";
             } else if (thumbIsOpen && firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && fourthFingerIsOpen) {
-                Log.d(TAG, "Spiderman");
                 imgVibrate.setVisibility(View.GONE);
                 imgNormal.setVisibility(View.GONE);
                 imgSilent.setVisibility(View.GONE);
                 feature.setText(" ");
                 return "Spider-Man";
             } else if (!thumbIsOpen && !firstFingerIsOpen && !secondFingerIsOpen && !thirdFingerIsOpen && !fourthFingerIsOpen) {
-                Log.d(TAG, "fist");
                 if (audioManager != null) {
                     audioManager.adjustStreamVolume(
                             AudioManager.STREAM_MUSIC,
@@ -188,7 +174,6 @@ public class MainActivity extends com.thecodework.handgesture.basic.BasicActivit
                 return "fist";
             } else if (!firstFingerIsOpen && secondFingerIsOpen && thirdFingerIsOpen && fourthFingerIsOpen &&
                     isThumbNearFirstFinger(landmarkList.get(4), landmarkList.get(8))) {
-                Log.d(TAG, "ok");
                 imgVibrate.setVisibility(View.GONE);
                 imgNormal.setVisibility(View.GONE);
                 imgSilent.setVisibility(View.GONE);
