@@ -14,7 +14,7 @@
         android:layout_marginTop="72dp"
         android:fontFamily="@font/pop_bold"
         android:gravity="center_horizontal"
-        android:text="Hand Gesture"
+        android:text="Handy"
         android:textColor="@color/light_green"
         android:textSize="32sp"
         app:layout_constraintHorizontal_bias="1.0"
